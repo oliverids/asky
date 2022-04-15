@@ -18,10 +18,16 @@ app.use(express.json())
 
 //rotas
 app.get('/', (req, res) => {
-    //DESC decrescente e ASC Crescente 
-    Pergunta.findAll({ raw: true, order: [['id', 'DESC']] }).then(perguntas => {
+    // Pergunta.findAll({ raw: true, order: [['id', 'DESC']] }).then(perguntas => {
+    //     res.render('index', {
+    //         perguntas: perguntas,
+    //     })
+    // })
+
+    Promise.all([Pergunta.findAll({ raw: true, order: [['id', 'DESC']] }), Resposta.findAll({ raw: true, order: [['id', 'DESC']] })]).then(data => {
         res.render('index', {
-            perguntas: perguntas,
+            perguntas: data[0],
+            respostas: data[1]
         })
     })
 })

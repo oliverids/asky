@@ -194,6 +194,9 @@ main {
                     margin-top: 32px;
                     padding-top: 8px;
                     border-top: 1px solid var(--borda);
+                    display: flex;
+                    align-items: center;
+                    gap: 32px;
 
                     a {
                         padding: 12px 0;
@@ -201,6 +204,10 @@ main {
                         align-items: center;
                         gap: 8px;
                         color: var(--responder);
+                    }
+
+                    span {
+                        color: var(--question-info);
                     }
                 }
             }

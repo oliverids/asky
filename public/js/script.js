@@ -8,8 +8,11 @@ backtop.addEventListener('click', () => {
 
 window.addEventListener('scroll', () => {
     let body = document.body,
-        topo = body.getBoundingClientRect().top;
-    topo < -700 ? backtop.classList.add('show') : backtop.classList.remove('show')
+        topo = body.getBoundingClientRect().top,
+        header = document.querySelector('header');
+    topo < -700 ? backtop.classList.add('show') : backtop.classList.remove('show');
+
+    topo !== 0 ? header.classList.add('scroll') : header.classList.remove('scroll');
 })
 
 const toggleMenu = document.getElementById('toggleMenu'),
