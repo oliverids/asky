@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/global.min.css">
+    <link rel="stylesheet" href="/css/perguntar.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <title>Guia Perguntas - Fazer Pergunta</title>
+</head>
+
+<body>
+    <%- include ('components/header.ejs') %> 
+    <section>
+        <div class="container">
+            <article class="branco">
+                <h2>Faça uma pergunta</h2>
+    
+                <form method="POST" action="/salvarpergunta">
+                    <div class="quebra">
+                        <div>
+                            <label for="autorPerg">Autor (opcional)</label>
+                            <input type="text" name="autorPerg" placeholder="Seu nome">
+                        </div>
+    
+                        <div>
+                            <label for="titulo">Título</label>
+                            <input type="text" name="titulo" placeholder="Título da pergunta" required>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <label for="descricao">Descrição</label>
+                        <textarea cols="30" rows="8" name="descricao" placeholder="Descreva sua pergunta..."></textarea>
+                    </div>
+
+                    <button class="cta">Postar pergunta</button>
+                </form>
+            </article>
+        </div>
+    </section>
+
+<%- include ('components/footer.ejs') %> 

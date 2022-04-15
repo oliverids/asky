@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/global.min.css">
+    <link rel="stylesheet" href="/css/pergunta.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <title><%= pergunta.titulo %></title>
+</head>
+
+<body>
+    <%- include ('components/header.ejs') %>
+
+        <section>
+            <div class="container">
+                <div class="branco">
+                    <article>
+                        <h2><%= pergunta.titulo %></h2>
+                        <p class="descricao"><%= pergunta.descricao %></p>
+
+                        <hr>
+                        <div class="data-nome">
+                            <p>Postado por</p>
+                            <% if(pergunta.autor) { %> 
+                                <span class="autor"><%= pergunta.autor %> </span>
+                                <%} else { %>
+                                    <span class="autor">Anônimo</span>
+                                <%}%>
+                            <span><%= pergunta.createdAt.toISOString().slice(0, 10).replaceAll('-', '/') %> <%= pergunta.createdAt.toISOString().slice(11, 16) %></span>
+                        </div>
+                    </article>
+    
+                    <article class="respostas">
+                        <span class="intertitulo"><%= respostas.length %> Resposta(s)</span>
+    
+                        <ul>
+                            <% respostas.forEach(resposta => { %>
+                                <li>
+                                    <p><%= resposta.corpo %></p>
+                                    <div class="data-nome">
+                                        <p>Postado por</p>
+                                        <% if(resposta.autor) { %> 
+                                            <span class="autor"><%= resposta.autor %> </span>
+                                            <%} else { %>
+                                                <span class="autor">Anônimo</span>
+                                            <%}%>
+                                        <span><%= resposta.createdAt.toISOString().slice(0, 10).replaceAll('-', '/') %> <%= resposta.createdAt.toISOString().slice(11, 16) %></span>
+                                    </div>
+                                    
+                                </li>
+                            <% }) %> 
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="resposta-form">
+            <div class="container">
+                <article class="branco">
+                    <span class="intertitulo">Responda</span>
+
+                    <form action="/responder" method="post">
+                        <label for="autorRes">Autor (opcional)</label>
+                        <input type="text" name="autorRes" placeholder="Seu nome">
+
+                        <label for="corpo">Resposta</label>
+                        <textarea placeholder="Digite sua resposta..." name="corpo" id="" cols="30" rows="6"></textarea>
+                        <input type="hidden" name="pergunta" value="<%= pergunta.id %>">
+                        <button type="submit" class="cta">Postar resposta</button>
+                    </form>
+                </article>
+            </div>
+        </section>
+
+<%- include ('components/footer.ejs') %> 
