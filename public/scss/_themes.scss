@@ -1,19 +1,53 @@
-$main-blue: #0070F0;
+$main-blue: #0070f0;
 
 :root {
     --body: #fff;
-    --text: #000B18;
-    --main-title: #0B305A;
+    --text: #000b18;
+    --main-title: #0b305a;
+    --banner: #e0e8f0;
+    --banner-text: #002248;
+    --titulo: #001f43;
+    --question-info: #61778f;
+    --responder: #005ac0;
+    --borda: #E0E8F0;
+
+    .responder svg {
+        path {
+            fill: var(--responder);
+        }
+    }
 }
 
 .escuro {
-    --body: #000B18;
-    --text: #fff;
-    --main-title: #CCE2FC;
+    --body: #000b18;
+    --text: #e1e1e1;
+    --main-title: #cce2fc;
+    --banner: #001630;
+    --banner-text: #b2d4fa;
+    --titulo: #b2d4fa;
+    --question-info: #8099b3;
+    --responder: #338df3;
+    --borda: #113C6F;
 
     svg {
         #preto * {
             fill: var(--text);
+        }
+    }
+
+    .banner svg {
+        circle {
+            fill: var(--banner);
+        }
+
+        path {
+            fill: var(--banner-text);
+        }
+    }
+
+    .responder svg {
+        path {
+            fill: var(--responder);
         }
     }
 }
