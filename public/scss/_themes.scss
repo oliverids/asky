@@ -1,0 +1,19 @@
+$main-blue: #0070F0;
+
+:root {
+    --body: #fff;
+    --text: #000B18;
+    --main-title: #0B305A;
+}
+
+.escuro {
+    --body: #000B18;
+    --text: #fff;
+    --main-title: #CCE2FC;
+
+    svg {
+        #preto * {
+            fill: var(--text);
+        }
+    }
+}

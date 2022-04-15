@@ -1,11 +1,10 @@
 {
-  "name": "guia-perguntas",
+  "name": "asky",
   "version": "1.0.0",
-  "description": "Uma plataforma de perguntas ao estilo Yahoo.",
+  "description": "Uma plataforma de perguntas ao estilo Yahoo Respostas.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "Isabela Oliveira da Silva",
   "license": "ISC",

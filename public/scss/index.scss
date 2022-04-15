@@ -1,56 +1,88 @@
-@import "var";
+@import "global";
+@import "themes";
 
 main {
-    padding: 5rem 0 2.75rem;
-    background: #00255c;
-    color: $branco;
+    padding-top: 132px;
+    color: var(--text);
     margin-bottom: 40px;
 
     .container {
         flex-direction: column;
-        align-items: flex-start;
+        justify-content: center;
+        align-items: center;
 
         .main {
             margin-bottom: 20px;
 
-            p {
-                margin-top: 12px;
-            }
-        }
+            span {
+                text-transform: uppercase;
+                font-weight: $semi;
+                font-size: 12px;
+                letter-spacing: 1px;
+                display: flex;
+                align-items: center;
+                margin-bottom: 1.5rem;
 
-        img {
-            align-self: center;
-        }
-    }
-
-    @media only screen and (min-width: 768px) {
-        padding: 7rem 0 3rem;
-
-        .container {
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-
-            .main {
-                max-width: 450px;
-            }
-        }
-    }
-
-    @media only screen and (min-width: 1300px) {
-        padding: 8rem 0 4rem;
-
-        .container {
-            .main {
-                max-width: 650px;
-
-                p {
-                    font-size: 20px;
+                &::before {
+                    content: url("../img/icons/comment.svg");
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 8px;
                 }
             }
-    
+
+            h1 {
+                font-size: 2.25rem;
+                font-family: $anybody;
+            }
+
+            p {
+                margin: 16px 0 36px;
+            }
+
+            a {
+                width: fit-content;
+                padding: 20px 32px 16px;
+            }
+        }
+
+        @keyframes animateBubbles {
+            from {
+                background-position: 11% 60%;
+                opacity: 0;
+            }
+            to {
+                background-position: 11% 30%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes animateMan {
+            from {
+                transform: translateY(72px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .main-image {
+            position: relative;
+            z-index: 2;
+            margin-top: 40px;
+            width: 300px;
+            display: flex;
+            justify-content: flex-end;
+            background-image: url("../img/bubble.svg");
+            background-repeat: no-repeat;
+            animation: animateBubbles 3s ease-in-out forwards;
+
             img {
-                width: 360px;
+                max-width: 220px;
+                transform: translateY(72px);
+                animation: animateMan 1.5s ease-in-out forwards;
             }
         }
     }
@@ -98,7 +130,7 @@ main {
                 border-radius: 4px;
                 box-shadow: 0px 5px 14px rgba(0, 37, 92, 0.08);
                 border: 1px groove #0f3f8836;
-                
+
                 &:not(:last-of-type) {
                     margin-bottom: 2rem;
                 }
@@ -107,7 +139,7 @@ main {
                     display: block;
                     width: 100%;
                     padding: 20px 16px;
-                    color: $preto;
+                    // color: $preto;
 
                     .descricao {
                         margin: 16px 0 20px;
