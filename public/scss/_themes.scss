@@ -11,6 +11,13 @@ $main-blue: #0070f0;
     --responder: #005ac0;
     --borda: #E0E8F0;
     --copy: #004390;
+    --btn-voltar: #5938D9;
+    --popup-overlay: rgba(234, 240, 245, 0.5);
+    --vermelho: #EB0010;
+
+    .btn-voltar svg path {
+        fill: var(--btn-voltar);
+    }
 
     .responder svg {
         path {
@@ -30,6 +37,9 @@ $main-blue: #0070f0;
     --responder: #338df3;
     --borda: #113C6F;
     --copy: #338DF3;
+    --btn-voltar: #8B75E3;
+    --popup-overlay: rgba(0, 34, 72, 0.5);
+    --vermelho: #F50010;
 
     svg {
         #preto * {
@@ -51,5 +61,9 @@ $main-blue: #0070f0;
         path {
             fill: var(--responder);
         }
+    }
+
+    .btn-voltar svg path {
+        fill: var(--btn-voltar);
     }
 }

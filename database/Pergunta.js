@@ -5,7 +5,11 @@ const Pergunta = connection.define('perguntas', {
     //STRING são textos curtos, TEXT textos longos
     autor: {
         type: Sequelize.TEXT,
-        allowNull: true
+        allowNull: false
+    },
+    foto: {
+        type: Sequelize.TEXT,
+        allowNull: false
     },
     titulo: {
         type: Sequelize.STRING,

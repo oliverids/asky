@@ -18,12 +18,6 @@ app.use(express.json())
 
 //rotas
 app.get('/', (req, res) => {
-    // Pergunta.findAll({ raw: true, order: [['id', 'DESC']] }).then(perguntas => {
-    //     res.render('index', {
-    //         perguntas: perguntas,
-    //     })
-    // })
-
     Promise.all([Pergunta.findAll({ raw: true, order: [['id', 'DESC']] }), Resposta.findAll({ raw: true, order: [['id', 'DESC']] })]).then(data => {
         res.render('index', {
             perguntas: data[0],
@@ -39,11 +33,13 @@ app.get('/perguntar', (req, res) => {
 //pra receber os dados do form
 app.post('/salvarpergunta', (req, res) => {
     let autorPerg = req.body.autorPerg,
+        autorPic = req.body.autorPic,
         titulo = req.body.titulo,
         descricao = req.body.descricao;
 
     Pergunta.create({
         autor: autorPerg,
+        foto: autorPic,
         titulo: titulo,
         descricao: descricao
     }).then(() => {
@@ -74,16 +70,20 @@ app.get('/pergunta/:id', (req, res) => {
 //respondendo a pergunta
 app.post('/responder', (req, res) => {
     let autorRes = req.body.autorRes,
+        autorPic = req.body.autorPic,
         corpo = req.body.corpo,
         perguntaId = req.body.pergunta;
 
     Resposta.create({
         autor: autorRes,
+        foto: autorPic,
         corpo: corpo,
         perguntaId: perguntaId
     }).then(() => {
         res.send(res.redirect(`/pergunta/${perguntaId}`))
     })
+
+    console.log(autorPic, autorRes)
 })
 
 app.listen(8080);

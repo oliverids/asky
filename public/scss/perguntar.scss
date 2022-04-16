@@ -1,37 +1,56 @@
-@import "var";
+@import "global";
+@import "themes";
 
 section {
-    margin: 4rem 0;
+    padding-top: 111px;
 
     .container {
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
 
         article {
-            width: 100%;
-            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
 
             form {
                 margin-top: 2rem;
                 display: flex;
-                flex-wrap: wrap;
+                flex-direction: column;
+                gap: 44px;
 
-                div {
-                    width: 100%;
+                input[name="autorRes"],
+                input[name="autorPic"],
+                input[name="autorPerg"] {
+                    display: none;
                 }
 
-                button {
-                    padding: 12px 44px;
-                }
+                .one, .two {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 24px;
 
-                @media only screen and (min-width: 1300px) {
-                    .quebra {
-                        display: flex;
-                        gap: 28px;
-
-                        div:first-of-type {
-                            width: 40%;
+                    .bloco {
+                        width: 100%;
+                        padding: 32px 24px;
+    
+                        .titulo {
+                            font-size: 1.375rem;
+                        }
+    
+                        p {
+                            margin-bottom: 24px;
+                        }
+    
+                        input, textarea {
+                            padding: 12px;
+                        }
+    
+                        &.tip {
+                            padding: 10px;
+                            border-color: #9B88E8;
+                            display: flex;
+                            align-items: center;
+                            gap: 12px;
+                            font-size: 14px;
                         }
                     }
                 }

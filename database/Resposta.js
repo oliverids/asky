@@ -4,7 +4,11 @@ const Sequelize = require('sequelize'),
 const Resposta = connection.define('respostas', {
     autor: {
         type: Sequelize.TEXT,
-        allowNull: true
+        allowNull: false
+    },
+    foto: {
+        type: Sequelize.TEXT,
+        allowNull: false
     },
     corpo: {
         type: Sequelize.TEXT,
