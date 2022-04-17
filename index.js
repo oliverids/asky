@@ -21,13 +21,22 @@ app.get('/', (req, res) => {
     Promise.all([Pergunta.findAll({ raw: true, order: [['id', 'DESC']] }), Resposta.findAll({ raw: true, order: [['id', 'DESC']] })]).then(data => {
         res.render('index', {
             perguntas: data[0],
-            respostas: data[1]
+            respostas: data[1],
         })
     })
 })
 
 app.get('/perguntar', (req, res) => {
     res.render('perguntar');
+})
+
+app.get('/todas-as-perguntas', (req, res) => {
+    Promise.all([Pergunta.findAll({ raw: true, order: [['id', 'DESC']] }), Resposta.findAll({ raw: true, order: [['id', 'DESC']] })]).then(data => {
+        res.render('todas-perguntas', {
+            perguntas: data[0],
+            respostas: data[1],
+        })
+    })
 })
 
 //pra receber os dados do form
