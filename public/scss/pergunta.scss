@@ -6,6 +6,10 @@ section:not(.wrapper) {
 
     .container {
         flex-direction: column;
+
+        @media only screen and (min-width: 1366px) { 
+            max-width: 1000px;
+        }
     }
 }
 

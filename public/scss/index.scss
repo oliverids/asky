@@ -134,6 +134,21 @@ main {
                 }
             }
         }
+
+        @media only screen and (min-width: 1366px) {
+            flex-direction: row;
+            align-items: center;
+
+            .main {
+                max-width: 800px;
+                align-items: start;
+                text-align: left;
+            }
+
+            .main-image {
+                margin: 0 0 -54px;
+            }
+        }
     }
 
     .banner {
@@ -141,39 +156,52 @@ main {
         padding: 36px 0;
 
         .container {
-            flex-direction: column;
-            justify-content: center;
-            gap: 28px;
-
-            p,
-            span {
-                font-family: $anybody !important;
-                color: var(--banner-info);
-            }
-
-            p {
+            div {
                 display: flex;
+                width: 100%;
+                flex-direction: column;
+                justify-content: center;
                 align-items: center;
-                gap: 12px;
-                line-height: 1.3;
-
-                &.contagem {
-                    font-size: 1.25rem;
-                    max-width: 220px;
-
-                    .banner-text {
-                        font-weight: $medium;
-                        font-size: 2.75rem;
-                        color: var(--banner-text);
+                gap: 28px;
+    
+                p,
+                span {
+                    font-family: $anybody !important;
+                    color: var(--banner-info);
+                }
+    
+                p {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    line-height: 1.3;
+    
+                    &.contagem {
+                        font-size: 1.25rem;
+                        max-width: 220px;
+    
+                        .banner-text {
+                            font-weight: $medium;
+                            font-size: 2.75rem;
+                            color: var(--banner-text);
+                        }
                     }
+                }
+    
+                @media only screen and (min-width: 1024px) {
+                    flex-direction: row;
+                    justify-content: space-between;
+                    max-width: 704px;
+                    margin: 0 auto;
                 }
             }
 
-            @media only screen and (min-width: 768px) {
-                flex-direction: row;
-                justify-content: space-between;
-                max-width: 704px;
-                margin: 0 auto;
+            @media only screen and (min-width: 1366px) {
+                justify-content: start;
+
+                div {
+                    margin: 0;
+                }
             }
         }
     }

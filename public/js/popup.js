@@ -25,15 +25,21 @@ function saveUsername() {
 
     confirm.addEventListener('click', () => {
         if (accept.classList.contains('chosen')) {
-            localStorage.setItem('username', input.value);
-            let userpic = users[Math.floor(Math.random() * users.length)];
-            localStorage.setItem('userpic', userpic);
+            if(input.value.length !== 0) {
+                localStorage.setItem('username', input.value);
+                let userpic = users[Math.floor(Math.random() * users.length)];
+                localStorage.setItem('userpic', userpic);
+                popup.classList.remove('shown');
+                document.location.reload();
+            } else {
+                input.focus();
+            }
         } else {
             localStorage.setItem('username', 'Anônimo');
             localStorage.setItem('userpic', '/img/users/anonymous.svg');
+            popup.classList.remove('shown');
+            document.location.reload();
         }
-        popup.classList.remove('shown');
-        document.location.reload();
     })
 }
 
