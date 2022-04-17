@@ -56,10 +56,10 @@
                 <h2 class="titulo t-section">Últimas perguntas</h2>
 
                 <ul>
-                    <% if(perguntas.length <= 5) { %>
+                    <% if(perguntas.length <= 6) { %>
                         <%- include ('components/listing.ejs', {lista: perguntas}) %>
                     <% } else { %>
-                        <% const filtro = perguntas.slice(0, 5) %>
+                        <% const filtro = perguntas.slice(0, 6) %>
                         <%- include ('components/listing.ejs', {lista: filtro}) %>
                     <%} %>
                 </ul>
