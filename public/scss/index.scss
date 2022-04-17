@@ -10,9 +10,16 @@ main {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        
 
         .main {
+            width: 100%;
             margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
 
             span {
                 text-transform: uppercase;
@@ -34,15 +41,27 @@ main {
             h1 {
                 font-size: 2.25rem;
                 font-family: $anybody;
+                color: var(--main-title);
             }
 
             p {
                 margin: 16px 0 36px;
+                max-width: 440px;
             }
 
             a {
                 width: fit-content;
                 padding: 20px 32px 16px;
+            }
+
+            @media only screen and (min-width: 768px) {
+                h1 {
+                    font-size: 54px;
+                }
+
+                p {
+                    font-size: 18px;
+                }
             }
         }
 
@@ -100,7 +119,7 @@ main {
             p,
             span {
                 font-family: $anybody !important;
-                color: var(--text);
+                color: var(--banner-info);
             }
 
             p {
@@ -120,8 +139,32 @@ main {
                     }
                 }
             }
+
+            @media only screen and (min-width: 768px) {
+                flex-direction: row;
+                justify-content: space-between;
+                max-width: 704px;
+                margin: 0 auto;
+            }
         }
     }
 }
 
 @import "listaperguntas";
+
+.credits {
+    display: flex;
+    justify-content: center;
+    padding: 4px 0;
+    background: var(--banner);
+
+    span,
+    a {
+        color: var(--banner-text);
+        font-size: .8rem;
+    }
+
+    a {
+        display: inline;
+    }
+}

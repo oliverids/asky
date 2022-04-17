@@ -1,4 +1,3 @@
-@import "var";
 @import "themes";
 
 @import url("https://fonts.googleapis.com/css2?family=Anybody:wght@400;600&family=Inter:wght@400;500;600&display=swap");
@@ -49,6 +48,14 @@ body {
 .container {
     padding: 0 1rem;
     display: flex;
+
+    @media only screen and (min-width: 576px) {
+        padding: 0 22px;
+    }
+
+    @media only screen and (min-width: 768px) {
+        padding: 0 2rem;
+    }
 }
 
 .btn-azul {
@@ -88,108 +95,130 @@ header {
     border-bottom: 1px solid var(--borda);
 
     .container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        #logo {
+        nav {
+            width: 100%;
             display: flex;
-            max-width: 100px;
-        }
+            align-items: center;
+            justify-content: space-between;
 
-        #toggleMenu {
-            width: 44px;
-            height: 44px;
-            z-index: 3;
-
-            div {
-                width: 40px;
-                height: 6px;
-                margin: 0 auto;
-                border-radius: 1px;
-                background: $main-blue;
-                transition: all 0.2s ease-in-out;
-                position: relative;
+            #logo {
                 display: flex;
+                max-width: 100px;
+            }
 
-                &::before,
-                &::after {
-                    content: "";
-                    position: absolute;
+            #toggleMenu {
+                width: 44px;
+                height: 44px;
+                z-index: 3;
+
+                div {
                     width: 40px;
                     height: 6px;
-                    border-radius: 2px;
+                    margin: 0 auto;
+                    border-radius: 1px;
                     background: $main-blue;
                     transition: all 0.2s ease-in-out;
-                }
+                    position: relative;
+                    display: flex;
 
-                &::before {
-                    transform: translateY(-14px);
-                    display: block;
-                }
-
-                &::after {
-                    transform: translateY(14px);
-                    display: block;
-                }
-            }
-
-            &.ativo {
-                div {
-                    transform: translateX(-50px);
-                    background: transparent;
+                    &::before,
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 40px;
+                        height: 6px;
+                        border-radius: 2px;
+                        background: $main-blue;
+                        transition: all 0.2s ease-in-out;
+                    }
 
                     &::before {
-                        transform: rotate(45deg) translate(35px, -35px);
+                        transform: translateY(-14px);
+                        display: block;
                     }
+
                     &::after {
-                        transform: rotate(-45deg) translate(35px, 35px);
+                        transform: translateY(14px);
+                        display: block;
                     }
                 }
-            }
-        }
 
-        #aside {
-            position: absolute;
-            right: 0;
-            top: 78px;
-            width: 260px;
-            height: calc(100vh - 70px);
-            background: var(--body);
-            padding: 64px 22px 22px;
-            transform: translateX(260px);
-            transition: 0.3s all ease-in-out;
+                &.ativo {
+                    div {
+                        transform: translateX(-50px);
+                        background: transparent;
 
-            &.ativo {
-                transform: translateX(0);
-                transition: 0.3s all ease-in-out;
-                box-shadow: -5px 23px 20px rgba(50, 50, 50, 0.06);
-            }
-
-            ul {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 36px;
-
-                li {
-                    width: fit-content;
+                        &::before {
+                            transform: rotate(45deg) translate(35px, -35px);
+                        }
+                        &::after {
+                            transform: rotate(-45deg) translate(35px, 35px);
+                        }
+                    }
                 }
 
-                #theme {
-                    width: 48px;
-                    height: 48px;
-                    border-radius: 50%;
-                    border: 1px solid var(--text);
-                    background-image: url("../img/icons/moon.svg");
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    background-size: 58%;
+                
+                @media only screen and (min-width: 768px) {
+                    display: none;
+                }
+            }
 
-                    &.ativo {
-                        background-image: url("../img/icons/sun.svg");
-                        background-size: 72%;
+            #aside {
+                position: absolute;
+                right: 0;
+                top: 78px;
+                width: 260px;
+                height: calc(100vh - 70px);
+                background: var(--body);
+                padding: 64px 22px 22px;
+                transform: translateX(260px);
+                transition: 0.3s all ease-in-out;
+
+                &.ativo {
+                    transform: translateX(0);
+                    transition: 0.3s all ease-in-out;
+                    box-shadow: -5px 23px 20px rgba(50, 50, 50, 0.06);
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 36px;
+
+                    li {
+                        width: fit-content;
+                    }
+
+                    #theme {
+                        width: 48px;
+                        height: 48px;
+                        border-radius: 50%;
+                        border: 1px solid var(--text);
+                        background-image: url("../img/icons/moon.svg");
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 58%;
+
+                        &.ativo {
+                            background-image: url("../img/icons/sun.svg");
+                            background-size: 72%;
+                        }
+                    }
+                }
+
+                
+                @media only screen and (min-width: 768px) {
+                    position: static;
+                    width: auto;
+                    height: auto;
+                    padding: 0;
+                    transform: translateX(0);
+                    transition: none;
+
+                    ul {
+                        flex-direction: row;
                     }
                 }
             }
@@ -324,12 +353,12 @@ footer {
     background: var(--popup-overlay);
     visibility: hidden;
     opacity: 0;
-    transition: .3s all ease-in-out;
+    transition: 0.3s all ease-in-out;
 
     &.shown {
         visibility: visible;
         opacity: 1;
-        transition: .3s all ease-in-out;
+        transition: 0.3s all ease-in-out;
     }
 
     .bloco {

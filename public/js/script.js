@@ -1,3 +1,34 @@
+const body = document.body,
+    themeBtn = document.getElementById('theme');
+
+function themeLocalStorage() {
+    if (localStorage.getItem('theme') === 'escuro') {
+        body.classList.add('escuro');
+        themeBtn.classList.add('ativo');
+    } else {
+        body.classList.remove('escuro');
+        themeBtn.classList.remove('ativo');
+    }
+}
+themeLocalStorage();
+
+function setLocalStorage() {
+    body.classList.contains('escuro') ? localStorage.setItem('theme', 'escuro') : localStorage.setItem('theme', 'claro');
+    themeLocalStorage()
+}
+
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    body.classList.add('escuro');
+    themeBtn.classList.add('ativo');
+    setLocalStorage()
+}
+
+themeBtn.addEventListener('click', () => {
+    body.classList.toggle('escuro');
+    themeBtn.classList.toggle('ativo');
+    setLocalStorage()
+})
+
 const backtop = document.getElementById('backtop');
 backtop.addEventListener('click', () => {
     window.scrollTo({
@@ -7,8 +38,7 @@ backtop.addEventListener('click', () => {
 });
 
 window.addEventListener('scroll', () => {
-    let body = document.body,
-        topo = body.getBoundingClientRect().top;
+    let topo = body.getBoundingClientRect().top;
     topo < -700 ? backtop.classList.add('show') : backtop.classList.remove('show');
 })
 
@@ -25,8 +55,5 @@ window.addEventListener('click', e => {
     }
 });
 
-const themeBtn = document.getElementById('theme');
-themeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('escuro');
-    themeBtn.classList.toggle('ativo')
-})
+
+

@@ -15,10 +15,8 @@
 
 <section class="lista-perguntas completa">
     <div class="container">
-        <article>
-            <h2 class="titulo">Todas as perguntas</h2>
-        </article>
-
+        <h2 class="titulo t-section">Todas as perguntas</h2>
+        <p><%= perguntas.length%> perguntas</p>
         <ul>
             <%- include ('components/listing.ejs', {lista: perguntas}) %>
         </ul>

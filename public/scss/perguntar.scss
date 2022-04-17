@@ -26,6 +26,7 @@ section {
                 .one, .two {
                     display: flex;
                     flex-direction: column;
+                    width: 100%;
                     gap: 24px;
 
                     .bloco {
@@ -51,6 +52,7 @@ section {
                             align-items: center;
                             gap: 12px;
                             font-size: 14px;
+                            width: fit-content;
                         }
                     }
                 }
