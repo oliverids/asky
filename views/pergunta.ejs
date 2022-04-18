@@ -36,7 +36,7 @@
                                         <%} else { %>
                                             <span class="autor">Anônimo</span>
                                         <%}%>
-                                    <span><%= pergunta.createdAt.toISOString().slice(0, 10).replaceAll('-', '/') %> <%= pergunta.createdAt.toISOString().slice(11, 16) %></span>
+                                    <span><%= pergunta.createdAt.toISOString().slice(0, 10).replaceAll('-', '/').split("/").reverse().join("/") %> <%= pergunta.createdAt.toISOString().slice(11, 16) %></span>
                                 </div>
                             </div>
     
@@ -71,7 +71,7 @@
                                                 <span><%= resposta.createdAt.toISOString().slice(0, 10).replaceAll('-', '/') %> <%= resposta.createdAt.toISOString().slice(11, 16) %></span>
                                             </div>
                                         </div>
-                                        <p><%= resposta.corpo %></p>
+                                        <p class="descricao"><%= resposta.corpo %></p>
                                     </li>
                                 <% }) %> 
                             </ul>

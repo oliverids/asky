@@ -43,6 +43,10 @@ body {
     color: var(--text);
     transition: 0.2s linear;
     position: relative;
+
+    @media only screen and (min-width: 1366px) { 
+        font-size: 18px;
+    }
 }
 
 .container {
@@ -310,7 +314,8 @@ form {
 footer {
     margin-top: 64px;
     padding: 1.1rem 0;
-    // box-shadow: 0 0 10px rgba(0, 37, 92, 0.09);
+    border-top: 1px solid var(--borda);
+
 
     .container {
         justify-content: space-between;
