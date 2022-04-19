@@ -83,6 +83,10 @@ main {
                     font-size: 20px;
                 }
             }
+
+            @media only screen and (min-width: 1366px) {
+                margin-bottom: 36px;
+            }
         }
 
         @keyframes animateBubbles {
@@ -163,23 +167,23 @@ main {
                 justify-content: center;
                 align-items: center;
                 gap: 28px;
-    
+
                 p,
                 span {
                     font-family: $anybody !important;
                     color: var(--banner-info);
                 }
-    
+
                 p {
                     display: flex;
                     align-items: center;
                     gap: 12px;
                     line-height: 1.3;
-    
+
                     &.contagem {
                         font-size: 1.25rem;
                         max-width: 220px;
-    
+
                         .banner-text {
                             font-weight: $medium;
                             font-size: 2.75rem;
@@ -187,7 +191,7 @@ main {
                         }
                     }
                 }
-    
+
                 @media only screen and (min-width: 1024px) {
                     flex-direction: row;
                     justify-content: space-between;
@@ -210,18 +214,22 @@ main {
 @import "listaperguntas";
 
 .credits {
-    display: flex;
-    justify-content: center;
-    padding: 4px 0;
+    padding: 6px 0;
     background: var(--banner);
 
-    span,
-    a {
-        color: var(--banner-text);
-        font-size: 0.8rem;
-    }
+    .container {
+        display: flex;
+        justify-content: center;
+        text-align: center;
 
-    a {
-        display: inline;
+        span,
+        a {
+            color: var(--question-info);
+            font-size: 0.8rem;
+        }
+
+        a {
+            display: inline-block;
+        }
     }
 }
