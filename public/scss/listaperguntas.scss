@@ -53,16 +53,18 @@
             flex-direction: column;
             width: 100%;
 
-            @media only screen and (min-width: 1280px) {
+            @media only screen and (min-width: 1100px) {
                 flex-direction: row;
                 flex-wrap: wrap;
-                // gap: 44px;
                 justify-content: space-between;
             }
 
             li {
                 width: 100%;
                 padding: 48px 32px 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
 
                 &:not(:last-of-type) {
                     margin-bottom: 28px;
@@ -114,12 +116,16 @@
                     }
                 }
 
-                @media only screen and (min-width: 1280px) {
-                    width: calc((100% - 44px)/2);
+                @media only screen and (min-width: 1100px) {
+                    width: calc((100% - 28px)/2);
 
                     &:last-of-type {
                             margin-bottom: 54px;
                     }
+                }
+
+                @media only screen and (min-width: 1280px) {
+                    width: calc((100% - 44px)/2);
                 }
             }
         }
