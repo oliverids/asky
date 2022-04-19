@@ -1,1 +1,9 @@
 /public/scss
+/public/js/popup-not-minified.js
+/public/js/script-not-minified.js
+/public/css/index.min.css.map
+/public/css/listaperguntas.min.css.map
+/public/css/pergunta.min.css.map
+/public/css/perguntar.min.css.map
+
+
